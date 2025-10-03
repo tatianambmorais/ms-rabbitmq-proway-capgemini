@@ -1,5 +1,6 @@
 package com.example.pedidos.dto;
 
+import com.example.pedidos.domain.StatusPedido;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,6 @@ public class PedidoDTO {
     private Long idPedido;
     private List<Long> listaProdutos;
     private Double valorTotal;
-    private String status;
+    private StatusPedido status;
 
 }

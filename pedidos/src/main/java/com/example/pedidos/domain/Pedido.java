@@ -18,6 +18,6 @@ public class Pedido {
     private List<Long> listaProdutos;
 
     private Double valorTotal;
-    private String status; // Ex: "CRIADO", "PROCESSADO", "CANCELADO"
+    private StatusPedido status;
 
 }

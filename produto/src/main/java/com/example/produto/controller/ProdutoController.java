@@ -19,11 +19,11 @@ public class ProdutoController {
     public ResponseEntity<Produto> cadastrar(@RequestBody Produto produto) {
         return ResponseEntity.ok(service.salvar(produto));
     }
-
-    @PutMapping("/{id}/vender")
-    public ResponseEntity<Produto> vender(@PathVariable Long id, @RequestParam int quantidade) {
-        return ResponseEntity.ok(service.atualizarEstoque(id, quantidade));
-    }
+//
+//    @PutMapping("/{id}/vender")
+//    public ResponseEntity<Produto> vender(@PathVariable Long id, @RequestParam int quantidade) {
+//        return ResponseEntity.ok(service.atualizarEstoque(id, quantidade));
+//    }
 
     @GetMapping
     public ResponseEntity<List<Produto>> listar() {

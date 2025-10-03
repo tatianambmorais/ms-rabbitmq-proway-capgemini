@@ -1,26 +1,25 @@
-package com.example.pedidos.producer;
+package com.example.produto.producer;
 
-import com.example.pedidos.dto.PedidoEstoqueMessageDTO;
+import com.example.produto.dto.PedidoEstoqueMessageDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
-public class PedidoProducer {
 
+@Component
+public class ProdutoProducer {
     private final RabbitTemplate rabbitTemplate;
 
-    @Value("${broker.queue.produto.estoque}")
+    @Value("${broker.queue.pedido.status}")
     private String routingKey;
 
-    public PedidoProducer(RabbitTemplate rabbitTemplate) {
+    public ProdutoProducer(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
     }
 
-    public void publishEstoqueMessage(PedidoEstoqueMessageDTO messageDTO) {
-        rabbitTemplate.convertAndSend("", routingKey, messageDTO);
+    public void publishStatusMessage(PedidoEstoqueMessageDTO messageDTO) {
+        rabbitTemplate.convertAndSend(routingKey, messageDTO);
     }
-
 }

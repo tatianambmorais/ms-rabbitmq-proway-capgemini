@@ -18,6 +18,14 @@ public class RabbitMQConfig {
         return new Queue(produtoEstoqueQueue, true);
     }
 
+    @Value("${broker.queue.pedido.status}")
+    private String pedidoStatusQueue;
+
+    @Bean
+    public Queue queuePedidoStatus() {
+        return new Queue(pedidoStatusQueue, true);
+    }
+
     @Bean
     public Jackson2JsonMessageConverter messageConverter(){
         ObjectMapper objectMapper = new ObjectMapper();
